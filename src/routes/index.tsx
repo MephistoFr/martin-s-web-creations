@@ -51,7 +51,7 @@ const projects = [
     desc: "Moteur d'animation léger pour des transitions web fluides.",
     img: projectFlow,
     span: "md:col-span-7 md:col-start-4",
-    offset: "md:-mt-20",
+    offset: "md:mt-16",
     ratio: "aspect-[16/10]",
   },
 ];
