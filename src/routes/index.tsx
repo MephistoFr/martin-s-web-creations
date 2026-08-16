@@ -209,40 +209,30 @@ function Index() {
           </Reveal>
         </section>
 
-        <section id="tarifs" className="mb-32">
-          <Reveal className="mb-10">
-            <h2 className="text-xs font-bold tracking-[0.2em] uppercase">Tarifs junior</h2>
+        <section id="methode" className="mb-32 flex flex-col gap-12 md:flex-row md:gap-20">
+          <Reveal className="md:w-2/5">
+            <h2 className="font-serif text-5xl leading-[0.9] md:text-7xl">
+              Pas de jargon. <br />
+              Juste une <span className="text-brand italic">bonne méthode.</span>
+            </h2>
           </Reveal>
-          <div className="grid grid-cols-1 gap-px border border-hairline bg-hairline md:grid-cols-3">
-            {offers.map((o) => (
-              <div key={o.name} className="group relative overflow-hidden bg-background p-10">
-                {o.featured && (
-                  <div className="absolute inset-0 translate-y-full bg-brand transition-transform duration-500 group-hover:translate-y-0" />
-                )}
-                <div
-                  className={`relative z-10 ${o.featured ? "transition-colors group-hover:text-background" : ""}`}
-                >
-                  <h3 className="mb-8 text-xs font-bold uppercase">{o.name}</h3>
-                  <p className="mb-4 font-serif text-5xl">
-                    {o.price}
-                    <span className="ml-1 text-sm">{o.unit}</span>
-                  </p>
-                  <p className="mb-8 font-mono text-sm opacity-60">{o.desc}</p>
-                  <a
-                    href="mailto:hello@martin.dev"
-                    className={`block w-full py-4 text-center text-xs font-bold tracking-widest uppercase transition-colors ${
-                      o.featured
-                        ? "bg-brand text-background group-hover:bg-background group-hover:text-foreground"
-                        : "border border-foreground hover:bg-foreground hover:text-background"
-                    }`}
-                  >
-                    Choisir
-                  </a>
+          <div className="flex-1 border-t border-foreground">
+            {steps.map((s, i) => (
+              <Reveal key={s.num} delay={i * 80}>
+                <div className="group flex gap-6 border-b border-foreground py-6 transition-colors hover:bg-card">
+                  <span className="font-mono text-[10px] tracking-widest text-brand">{s.num}</span>
+                  <div>
+                    <h3 className="text-lg font-medium tracking-tight">{s.title}</h3>
+                    <p className="mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
+                      {s.desc}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </section>
+
 
         <section className="border-t border-foreground pt-16">
           <Reveal>
