@@ -104,9 +104,9 @@ function Index() {
         </a>
       </nav>
 
-      <main className="mx-auto max-w-7xl px-6 pt-40 pb-20">
-        <section className="relative mb-32 md:mb-40">
-          <div className="pointer-events-none absolute -top-16 -left-6 font-serif text-[160px] leading-none text-foreground/5 italic select-none md:-top-24 md:text-[280px]">
+      <main className="mx-auto max-w-7xl px-6 pb-20">
+        <section className="relative flex min-h-screen flex-col justify-center pt-32">
+          <div className="pointer-events-none absolute top-1/2 -left-6 -translate-y-1/2 font-serif text-[160px] leading-none text-foreground/5 italic select-none md:text-[280px]">
             16&nbsp;ans
           </div>
           <h1 className="animate-rise relative mb-8 font-serif text-6xl leading-[0.85] tracking-tight md:text-[10rem]">
