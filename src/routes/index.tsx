@@ -91,9 +91,10 @@ function Index() {
           <a href="#expertise" className="transition-colors hover:text-brand">
             Expertise
           </a>
-          <a href="#tarifs" className="transition-colors hover:text-brand">
-            Tarifs
+          <a href="#methode" className="transition-colors hover:text-brand">
+            Méthode
           </a>
+
         </div>
         <a
           href="mailto:hello@martin.dev"
