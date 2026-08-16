@@ -126,32 +126,57 @@ function Index() {
           </div>
         </section>
 
-        <section id="projets" className="mb-32 grid grid-cols-12 gap-6 md:mb-40">
-          {projects.map((p, i) => (
-            <Reveal key={p.title} delay={i * 100} className={`col-span-12 ${p.span} ${p.offset}`}>
-              <article className="group">
-                <div className={`${p.ratio} mb-4 overflow-hidden bg-muted`}>
-                  <img
-                    src={p.img}
-                    alt={`Aperçu du projet ${p.title}`}
-                    loading="lazy"
-                    className="size-full object-cover grayscale transition-all duration-700 group-hover:scale-[1.02] group-hover:grayscale-0"
-                  />
-                </div>
-                <div className="flex items-end justify-between gap-6">
-                  <div>
-                    <span className="border border-foreground px-2 py-0.5 font-mono text-[10px] uppercase">
-                      {p.tech}
+        <section id="projets" className="mb-32 md:mb-40">
+          <Reveal className="mb-12 flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+            <h2 className="font-serif text-6xl leading-[0.85] md:text-8xl">
+              Des projets <br />
+              <span className="text-brand italic">qui existent.</span>
+            </h2>
+            <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
+              Des concepts réalisés pour apprendre, tester et donner une forme à des idées. Chaque
+              projet est un prétexte pour aller un peu plus loin.
+            </p>
+          </Reveal>
+
+          <div className="flex flex-col gap-6">
+            {projects.map((p, i) => (
+              <Reveal key={p.title} delay={i * 100}>
+                <article className="group grid grid-cols-1 overflow-hidden border border-foreground md:grid-cols-2">
+                  <div className="flex flex-col justify-between gap-10 bg-card p-8 md:p-10">
+                    <span className="font-mono text-[10px] tracking-widest text-brand uppercase">
+                      {p.num} / {p.kind}
                     </span>
-                    <h3 className="mt-2 font-serif text-3xl md:text-4xl">{p.title}</h3>
-                    <p className="mt-1 max-w-sm text-sm text-muted-foreground">{p.desc}</p>
+                    <div>
+                      <h3 className="font-serif text-5xl leading-[0.9] md:text-6xl">{p.title}</h3>
+                      <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
+                        {p.desc}
+                      </p>
+                      <div className="mt-6 flex flex-wrap gap-2">
+                        {p.tags.map((t) => (
+                          <span
+                            key={t}
+                            className="rounded-full border border-foreground px-3 py-1 font-mono text-[10px] tracking-widest uppercase"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <span className="text-4xl transition-transform group-hover:translate-x-2">→</span>
-                </div>
-              </article>
-            </Reveal>
-          ))}
+                  <div className="aspect-[4/3] overflow-hidden bg-muted md:aspect-auto md:min-h-[320px]">
+                    <img
+                      src={p.img}
+                      alt={`Aperçu du projet ${p.title}`}
+                      loading="lazy"
+                      className="size-full object-cover grayscale transition-all duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
+                    />
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
         </section>
+
 
         <section
           id="expertise"
