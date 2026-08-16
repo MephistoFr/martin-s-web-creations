@@ -150,10 +150,10 @@ function Index() {
               return (
                 <Reveal
                   key={p.title}
-                  className={`group relative ${positions[i]}`}
+                  className={`group relative transition-all duration-500 hover:z-10 ${positions[i]}`}
                   delay={i * 120}
                 >
-                  <article className="relative overflow-hidden border border-foreground bg-card">
+                  <article className="relative overflow-hidden border border-foreground bg-card transition-all duration-500 group-hover:shadow-[8px_8px_0px_0px_var(--foreground)]">
                     <div className={`relative aspect-[4/3] w-full overflow-hidden ${heights[i]}`}>
                       <img
                         src={p.img}
