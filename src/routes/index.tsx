@@ -128,7 +128,7 @@ function Index() {
         </section>
 
         <section id="projets" className="mb-32 md:mb-40">
-          <Reveal className="mb-12 flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+          <Reveal className="mb-16 flex flex-col gap-8 md:mb-24 md:flex-row md:items-end md:justify-between">
             <h2 className="font-serif text-6xl leading-[0.85] md:text-8xl">
               Des projets <br />
               <span className="text-brand italic">qui existent.</span>
@@ -139,42 +139,57 @@ function Index() {
             </p>
           </Reveal>
 
-          <div className="flex flex-col gap-6">
-            {projects.map((p, i) => (
-              <Reveal key={p.title} delay={i * 100}>
-                <article className="group grid grid-cols-1 overflow-hidden border border-foreground md:grid-cols-2">
-                  <div className="flex flex-col justify-between gap-10 bg-card p-8 md:p-10">
-                    <span className="font-mono text-[10px] tracking-widest text-brand uppercase">
-                      {p.num} / {p.kind}
-                    </span>
-                    <div>
-                      <h3 className="font-serif text-5xl leading-[0.9] md:text-6xl">{p.title}</h3>
-                      <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
+          <div className="relative grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-0">
+            {projects.map((p, i) => {
+              const positions = [
+                "md:col-span-7 md:col-start-1",
+                "md:col-span-5 md:col-start-8 md:-mt-32",
+                "md:col-span-6 md:col-start-4 md:-mt-20",
+              ];
+              const heights = ["md:aspect-[4/3]", "md:aspect-[3/4]", "md:aspect-[16/10]"];
+              return (
+                <Reveal
+                  key={p.title}
+                  className={`group relative ${positions[i]}`}
+                  delay={i * 120}
+                >
+                  <article className="relative overflow-hidden border border-foreground bg-card">
+                    <div className={`relative aspect-[4/3] w-full overflow-hidden ${heights[i]}`}>
+                      <img
+                        src={p.img}
+                        alt={`Aperçu du projet ${p.title}`}
+                        loading="lazy"
+                        className="size-full object-cover grayscale transition-all duration-700 group-hover:scale-[1.04] group-hover:grayscale-0"
+                      />
+                      <div className="absolute inset-0 bg-foreground/0 transition-colors duration-500 group-hover:bg-foreground/10" />
+                    </div>
+                    <div className="relative z-10 -mt-12 ml-4 inline-block bg-background p-4 md:-mt-16 md:ml-6 md:p-6">
+                      <span className="block font-mono text-[10px] tracking-widest text-brand uppercase">
+                        {p.num} / {p.kind}
+                      </span>
+                      <h3 className="mt-2 font-serif text-4xl leading-[0.9] md:text-5xl">
+                        {p.title}
+                      </h3>
+                    </div>
+                    <div className="p-6 pt-2 md:p-8 md:pt-2">
+                      <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
                         {p.desc}
                       </p>
-                      <div className="mt-6 flex flex-wrap gap-2">
+                      <div className="mt-5 flex flex-wrap gap-2">
                         {p.tags.map((t) => (
                           <span
                             key={t}
-                            className="rounded-full border border-foreground px-3 py-1 font-mono text-[10px] tracking-widest uppercase"
+                            className="border border-foreground px-3 py-1 font-mono text-[10px] tracking-widest uppercase"
                           >
                             {t}
                           </span>
                         ))}
                       </div>
                     </div>
-                  </div>
-                  <div className="aspect-[4/3] overflow-hidden bg-muted md:aspect-auto md:min-h-[320px]">
-                    <img
-                      src={p.img}
-                      alt={`Aperçu du projet ${p.title}`}
-                      loading="lazy"
-                      className="size-full object-cover grayscale transition-all duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
-                    />
-                  </div>
-                </article>
-              </Reveal>
-            ))}
+                  </article>
+                </Reveal>
+              );
+            })}
           </div>
         </section>
 
