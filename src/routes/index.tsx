@@ -143,8 +143,8 @@ function Index() {
             {projects.map((p, i) => {
               const positions = [
                 "md:col-span-7 md:col-start-1",
-                "md:col-span-5 md:col-start-8 md:-mt-32",
-                "md:col-span-6 md:col-start-4 md:-mt-20",
+                "md:col-span-5 md:col-start-8 md:-mt-16",
+                "md:col-span-6 md:col-start-4 md:-mt-8",
               ];
               const heights = ["md:aspect-[4/3]", "md:aspect-[3/4]", "md:aspect-[16/10]"];
               return (
