@@ -139,14 +139,14 @@ function Index() {
             </p>
           </Reveal>
 
-          <div className="relative grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-0">
+          <div className="relative grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-x-6 md:gap-y-16">
             {projects.map((p, i) => {
               const positions = [
                 "md:col-span-7 md:col-start-1",
-                "md:col-span-5 md:col-start-8 md:-mt-16",
-                "md:col-span-6 md:col-start-4 md:-mt-8",
+                "md:col-span-5 md:col-start-8 md:mt-24",
+                "md:col-span-8 md:col-start-3",
               ];
-              const heights = ["md:aspect-[4/3]", "md:aspect-[3/4]", "md:aspect-[16/10]"];
+              const heights = ["md:aspect-[4/3]", "md:aspect-[3/4]", "md:aspect-[16/9]"];
               return (
                 <Reveal
                   key={p.title}
