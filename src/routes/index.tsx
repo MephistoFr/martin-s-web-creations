@@ -28,59 +28,56 @@ export const Route = createFileRoute("/")({
 
 const projects = [
   {
-    title: "Volt Dashboard",
-    tech: "Next.js / Tailwind",
-    desc: "Interface de monitoring en temps réel pour actifs numériques.",
+    num: "01",
+    kind: "concept",
+    title: "Maison Barbier",
+    desc: "Une identité en ligne pour un barbier qui aime les gestes précis, les belles matières et les lieux qui ont du caractère.",
+    tags: ["Direction artistique", "Site vitrine"],
     img: projectVolt,
-    span: "md:col-span-7",
-    offset: "",
-    ratio: "aspect-[4/5]",
   },
   {
+    num: "02",
+    kind: "expérimentation",
     title: "Kuro Notes",
-    tech: "Tailwind / UI",
-    desc: "Application de prise de notes minimaliste axée sur la confidentialité.",
+    desc: "Une prise de notes minimaliste, pensée pour écrire vite et garder ses idées pour soi.",
+    tags: ["Interface", "React"],
     img: projectKuro,
-    span: "md:col-span-5",
-    offset: "md:mt-40",
-    ratio: "aspect-[3/4]",
   },
   {
+    num: "03",
+    kind: "outil",
     title: "Flow Engine",
-    tech: "TypeScript / Motion",
-    desc: "Moteur d'animation léger pour des transitions web fluides.",
+    desc: "Un petit moteur d'animation fait pour comprendre comment les transitions web deviennent fluides.",
+    tags: ["TypeScript", "Motion"],
     img: projectFlow,
-    span: "md:col-span-7 md:col-start-4",
-    offset: "md:mt-16",
-    ratio: "aspect-[16/10]",
   },
 ];
 
 const stack = ["React / Vite", "TypeScript", "Tailwind CSS", "Framer Motion"];
 
-const offers = [
+const steps = [
   {
-    name: "Landing page",
-    price: "300€",
-    unit: "+",
-    desc: "Une page unique, rapide, pensée pour convertir.",
-    featured: false,
+    num: "01",
+    title: "On papote",
+    desc: "Tu me racontes ton idée, même si elle tient sur un coin de note. Je pose les bonnes questions.",
   },
   {
-    name: "Site complet",
-    price: "150€",
-    unit: "/ jour",
-    desc: "Multi-pages, animations, SEO. Tarif junior assumé.",
-    featured: true,
+    num: "02",
+    title: "On esquisse",
+    desc: "Je transforme les mots en structure, en couleurs et en premières pistes que l'on peut vraiment regarder.",
   },
   {
-    name: "Maintenance",
-    price: "50€",
-    unit: "/ mois",
-    desc: "Mises à jour, corrections et petites évolutions.",
-    featured: false,
+    num: "03",
+    title: "On construit",
+    desc: "Je code, je teste, je te montre. Les retours font partie du chemin, pas d'une case à cocher à la fin.",
+  },
+  {
+    num: "04",
+    title: "On met en ligne",
+    desc: "Le site est prêt à être partagé. Et je t'explique comment le garder vivant sans te noyer.",
   },
 ];
+
 
 function Index() {
   return (
@@ -94,9 +91,10 @@ function Index() {
           <a href="#expertise" className="transition-colors hover:text-brand">
             Expertise
           </a>
-          <a href="#tarifs" className="transition-colors hover:text-brand">
-            Tarifs
+          <a href="#methode" className="transition-colors hover:text-brand">
+            Méthode
           </a>
+
         </div>
         <a
           href="mailto:hello@martin.dev"
@@ -129,32 +127,57 @@ function Index() {
           </div>
         </section>
 
-        <section id="projets" className="mb-32 grid grid-cols-12 gap-6 md:mb-40">
-          {projects.map((p, i) => (
-            <Reveal key={p.title} delay={i * 100} className={`col-span-12 ${p.span} ${p.offset}`}>
-              <article className="group">
-                <div className={`${p.ratio} mb-4 overflow-hidden bg-muted`}>
-                  <img
-                    src={p.img}
-                    alt={`Aperçu du projet ${p.title}`}
-                    loading="lazy"
-                    className="size-full object-cover grayscale transition-all duration-700 group-hover:scale-[1.02] group-hover:grayscale-0"
-                  />
-                </div>
-                <div className="flex items-end justify-between gap-6">
-                  <div>
-                    <span className="border border-foreground px-2 py-0.5 font-mono text-[10px] uppercase">
-                      {p.tech}
+        <section id="projets" className="mb-32 md:mb-40">
+          <Reveal className="mb-12 flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+            <h2 className="font-serif text-6xl leading-[0.85] md:text-8xl">
+              Des projets <br />
+              <span className="text-brand italic">qui existent.</span>
+            </h2>
+            <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
+              Des concepts réalisés pour apprendre, tester et donner une forme à des idées. Chaque
+              projet est un prétexte pour aller un peu plus loin.
+            </p>
+          </Reveal>
+
+          <div className="flex flex-col gap-6">
+            {projects.map((p, i) => (
+              <Reveal key={p.title} delay={i * 100}>
+                <article className="group grid grid-cols-1 overflow-hidden border border-foreground md:grid-cols-2">
+                  <div className="flex flex-col justify-between gap-10 bg-card p-8 md:p-10">
+                    <span className="font-mono text-[10px] tracking-widest text-brand uppercase">
+                      {p.num} / {p.kind}
                     </span>
-                    <h3 className="mt-2 font-serif text-3xl md:text-4xl">{p.title}</h3>
-                    <p className="mt-1 max-w-sm text-sm text-muted-foreground">{p.desc}</p>
+                    <div>
+                      <h3 className="font-serif text-5xl leading-[0.9] md:text-6xl">{p.title}</h3>
+                      <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
+                        {p.desc}
+                      </p>
+                      <div className="mt-6 flex flex-wrap gap-2">
+                        {p.tags.map((t) => (
+                          <span
+                            key={t}
+                            className="rounded-full border border-foreground px-3 py-1 font-mono text-[10px] tracking-widest uppercase"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <span className="text-4xl transition-transform group-hover:translate-x-2">→</span>
-                </div>
-              </article>
-            </Reveal>
-          ))}
+                  <div className="aspect-[4/3] overflow-hidden bg-muted md:aspect-auto md:min-h-[320px]">
+                    <img
+                      src={p.img}
+                      alt={`Aperçu du projet ${p.title}`}
+                      loading="lazy"
+                      className="size-full object-cover grayscale transition-all duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
+                    />
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
         </section>
+
 
         <section
           id="expertise"
@@ -187,40 +210,30 @@ function Index() {
           </Reveal>
         </section>
 
-        <section id="tarifs" className="mb-32">
-          <Reveal className="mb-10">
-            <h2 className="text-xs font-bold tracking-[0.2em] uppercase">Tarifs junior</h2>
+        <section id="methode" className="mb-32 flex flex-col gap-12 md:flex-row md:gap-20">
+          <Reveal className="md:w-2/5">
+            <h2 className="font-serif text-5xl leading-[0.9] md:text-7xl">
+              Pas de jargon. <br />
+              Juste une <span className="text-brand italic">bonne méthode.</span>
+            </h2>
           </Reveal>
-          <div className="grid grid-cols-1 gap-px border border-hairline bg-hairline md:grid-cols-3">
-            {offers.map((o) => (
-              <div key={o.name} className="group relative overflow-hidden bg-background p-10">
-                {o.featured && (
-                  <div className="absolute inset-0 translate-y-full bg-brand transition-transform duration-500 group-hover:translate-y-0" />
-                )}
-                <div
-                  className={`relative z-10 ${o.featured ? "transition-colors group-hover:text-background" : ""}`}
-                >
-                  <h3 className="mb-8 text-xs font-bold uppercase">{o.name}</h3>
-                  <p className="mb-4 font-serif text-5xl">
-                    {o.price}
-                    <span className="ml-1 text-sm">{o.unit}</span>
-                  </p>
-                  <p className="mb-8 font-mono text-sm opacity-60">{o.desc}</p>
-                  <a
-                    href="mailto:hello@martin.dev"
-                    className={`block w-full py-4 text-center text-xs font-bold tracking-widest uppercase transition-colors ${
-                      o.featured
-                        ? "bg-brand text-background group-hover:bg-background group-hover:text-foreground"
-                        : "border border-foreground hover:bg-foreground hover:text-background"
-                    }`}
-                  >
-                    Choisir
-                  </a>
+          <div className="flex-1 border-t border-foreground">
+            {steps.map((s, i) => (
+              <Reveal key={s.num} delay={i * 80}>
+                <div className="group flex gap-6 border-b border-foreground py-6 transition-colors hover:bg-card">
+                  <span className="font-mono text-[10px] tracking-widest text-brand">{s.num}</span>
+                  <div>
+                    <h3 className="text-lg font-medium tracking-tight">{s.title}</h3>
+                    <p className="mt-2 max-w-md text-sm leading-relaxed text-muted-foreground">
+                      {s.desc}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </section>
+
 
         <section className="border-t border-foreground pt-16">
           <Reveal>
