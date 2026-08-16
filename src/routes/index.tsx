@@ -28,59 +28,56 @@ export const Route = createFileRoute("/")({
 
 const projects = [
   {
-    title: "Volt Dashboard",
-    tech: "Next.js / Tailwind",
-    desc: "Interface de monitoring en temps réel pour actifs numériques.",
+    num: "01",
+    kind: "concept",
+    title: "Maison Barbier",
+    desc: "Une identité en ligne pour un barbier qui aime les gestes précis, les belles matières et les lieux qui ont du caractère.",
+    tags: ["Direction artistique", "Site vitrine"],
     img: projectVolt,
-    span: "md:col-span-7",
-    offset: "",
-    ratio: "aspect-[4/5]",
   },
   {
+    num: "02",
+    kind: "expérimentation",
     title: "Kuro Notes",
-    tech: "Tailwind / UI",
-    desc: "Application de prise de notes minimaliste axée sur la confidentialité.",
+    desc: "Une prise de notes minimaliste, pensée pour écrire vite et garder ses idées pour soi.",
+    tags: ["Interface", "React"],
     img: projectKuro,
-    span: "md:col-span-5",
-    offset: "md:mt-40",
-    ratio: "aspect-[3/4]",
   },
   {
+    num: "03",
+    kind: "outil",
     title: "Flow Engine",
-    tech: "TypeScript / Motion",
-    desc: "Moteur d'animation léger pour des transitions web fluides.",
+    desc: "Un petit moteur d'animation fait pour comprendre comment les transitions web deviennent fluides.",
+    tags: ["TypeScript", "Motion"],
     img: projectFlow,
-    span: "md:col-span-7 md:col-start-4",
-    offset: "md:mt-16",
-    ratio: "aspect-[16/10]",
   },
 ];
 
 const stack = ["React / Vite", "TypeScript", "Tailwind CSS", "Framer Motion"];
 
-const offers = [
+const steps = [
   {
-    name: "Landing page",
-    price: "300€",
-    unit: "+",
-    desc: "Une page unique, rapide, pensée pour convertir.",
-    featured: false,
+    num: "01",
+    title: "On papote",
+    desc: "Tu me racontes ton idée, même si elle tient sur un coin de note. Je pose les bonnes questions.",
   },
   {
-    name: "Site complet",
-    price: "150€",
-    unit: "/ jour",
-    desc: "Multi-pages, animations, SEO. Tarif junior assumé.",
-    featured: true,
+    num: "02",
+    title: "On esquisse",
+    desc: "Je transforme les mots en structure, en couleurs et en premières pistes que l'on peut vraiment regarder.",
   },
   {
-    name: "Maintenance",
-    price: "50€",
-    unit: "/ mois",
-    desc: "Mises à jour, corrections et petites évolutions.",
-    featured: false,
+    num: "03",
+    title: "On construit",
+    desc: "Je code, je teste, je te montre. Les retours font partie du chemin, pas d'une case à cocher à la fin.",
+  },
+  {
+    num: "04",
+    title: "On met en ligne",
+    desc: "Le site est prêt à être partagé. Et je t'explique comment le garder vivant sans te noyer.",
   },
 ];
+
 
 function Index() {
   return (
